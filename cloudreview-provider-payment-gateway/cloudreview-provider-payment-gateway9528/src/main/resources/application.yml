@@ -1,0 +1,33 @@
+server:
+  port: 9528
+
+spring:
+  application:
+    name: cloudreview-provider-payment-gateway
+  cloud:
+    gateway:
+      # 网关路由设置
+      routes:
+        - id: provider-payment
+          #uri: http://localhost:8001   #单机使用
+          uri: lb://cloudreview-provider-payment
+          predicates:
+            - Path=/**
+            # 这个时间后才能起效
+            - After=2021-11-02T09:25:01.889+08:00[Asia/Shanghai]
+
+eureka:
+  client: #服务提供者provider注册进eureka服务列表内
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    # 显示主机名称修改
+    instance-id: geteway9528
+    # 访问信息IP信息提示
+    prefer-ip-address: true
+    # Eureka客户端向服务端发送心跳的时间间隔，单位为秒(默认是30秒)
+    lease-renewal-interval-in-seconds: 3
+    # Eureka服务端在收到最后一次心跳后等待时间上限，单位为秒(默认是90秒)，超时将剔除服务
+    lease-expiration-duration-in-seconds: 5

@@ -1,0 +1,6 @@
+server:
+  port: 6001
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"

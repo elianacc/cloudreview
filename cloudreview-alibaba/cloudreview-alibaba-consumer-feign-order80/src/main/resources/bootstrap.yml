@@ -1,0 +1,10 @@
+server:
+  port: 80
+
+spring:
+  profiles:
+    active: dev # 开发环境
+    #active: test # 测试环境
+    #active: prod # 正式环境
+  application:
+    name: cloudreview-alibaba-consumer-feign-order

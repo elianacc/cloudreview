@@ -1,0 +1,41 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: cloudreview-alibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # Nacos服务注册中心地址
+    sentinel:
+      transport:
+        dashboard: localhost:8086 # 配置Sentinel dashboard地址
+        port: 8719
+      datasource: #添加Nacos数据源配置,sentinel持久化
+        # 自定义的流控规则数据源名称
+        flow:
+          nacos:
+            server-addr: localhost:8848
+            dataId: sentinel.rule.flow
+            groupId: ${spring.application.name}
+            data-type: json
+            rule-type: flow
+        # 自定义的降级规则数据源名称
+        degrade:
+          nacos:
+            server-addr: localhost:8848
+            dataId: sentinel.rule.degrade
+            groupId: ${spring.application.name}
+            data-type: json
+            rule-type: degrade
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+#feign:
+#  sentinel:
+#    # 激活Sentinel对Feign的支持
+#    enabled: true
