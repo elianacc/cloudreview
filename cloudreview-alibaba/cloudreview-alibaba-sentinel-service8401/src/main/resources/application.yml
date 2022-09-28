@@ -17,6 +17,7 @@ spring:
         flow:
           nacos:
             server-addr: localhost:8848
+            namespace: eb582f4a-7412-4cf3-8897-a0c4a9d3f75e
             dataId: sentinel.rule.flow
             groupId: ${spring.application.name}
             data-type: json
@@ -25,6 +26,7 @@ spring:
         degrade:
           nacos:
             server-addr: localhost:8848
+            namespace: eb582f4a-7412-4cf3-8897-a0c4a9d3f75e
             dataId: sentinel.rule.degrade
             groupId: ${spring.application.name}
             data-type: json
