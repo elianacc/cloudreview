@@ -2716,6 +2716,10 @@ bootstrap+application
 
 
 
+**！！！！！！！！！！同namespace下不同分组之间的服务调用问题** 
+
+https://github.com/alibaba/nacos/issues/3193
+
 
 
 ### Nacos集群
@@ -3660,6 +3664,14 @@ sh nacos-config.sh -h localhost -p 8848 -t eb582f4a-7412-4cf3-8897-a0c4a9d3f75e 
 
 
 
+
+seata参考
+
+https://www.cnblogs.com/zhoushiya/p/13770494.html
+
+https://blog.csdn.net/HeyKongZ/article/details/118998153
+
+http://t.zoukankan.com/jian0110-p-14762509.html
 
 
 
